@@ -160,6 +160,20 @@ console.log(author, title, genres);
 // const secondary = genres[1];
 // const tertiary = genres[2];
 
-const [primary, secondary, tertiary] = genres;
+const [primary, ...restGenres] = genres;
 
-console.log(primary, secondary, tertiary);
+console.log(primary, restGenres);
+
+const newGenres = [...genres, "Educational", "Modern Travel"];
+newGenres;
+
+const newBook = {
+  ...book,
+
+  //  Adding a new Property
+  bookPublicationDate: "2024-05-24",
+
+  author: "Mohamed Bakuly",
+  //  Overwriting an exsiting property
+};
+newBook;
