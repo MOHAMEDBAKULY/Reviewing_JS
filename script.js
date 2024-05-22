@@ -160,10 +160,12 @@ console.log(author, title, genres);
 // const secondary = genres[1];
 // const tertiary = genres[2];
 
+// Rest Operator used to get the rest of values in an array or object
 const [primary, ...restGenres] = genres;
 
 console.log(primary, restGenres);
 
+// Spread Operator used to attach exsiting data to newly introduced values
 const newGenres = [...genres, "Educational", "Modern Travel"];
 newGenres;
 
@@ -177,3 +179,14 @@ const newBook = {
   //  Overwriting an exsiting property
 };
 newBook;
+
+// Template literals
+const summary = `The movie ${title}, has different genres like ${
+  genres[2]
+}, it was written by ${author}, a script over ${pages}-pages,
+The book has${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
+summary;
+
+// Ternary Operators
+const noPages = pages < 800 ? "Write more next time" : "Keep up the good work";
+console.log(`The writer should ${noPages}`);
