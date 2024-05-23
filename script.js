@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring
 
-const book = getBook(3);
+const book = getBook(2);
 book;
 
 // const title = book.title;
@@ -180,6 +180,14 @@ const newBook = {
 };
 newBook;
 
+// // Arrow functions
+// function dateToday(str) {
+//   return str.split("-")[0];
+// }
+
+const dateToday = (str) => str.split("-")[0];
+console.log(dateToday(publicationDate));
+
 // Template literals
 const summary = `The movie ${title}, has different genres like ${
   genres[2]
@@ -190,3 +198,27 @@ summary;
 // Ternary Operators
 const noPages = pages < 800 ? "Write more next time" : "Keep up the good work";
 console.log(`The writer should ${noPages}`);
+
+// Short-circuting and Logical Operators && -- ||
+console.log(true && "Correct Answer");
+console.log(false && "Correct Answer");
+console.log(hasMovieAdaptation && "Correct Answer");
+
+// The OR operator
+console.log(true || "Correct Answer");
+console.log(false || "Correct Answer");
+
+console.log(book.translations.chinese);
+
+const toChinese = book.translations.chinese || "Not Availble";
+toChinese;
+
+// Optional Chanining and Nullish Coalessing
+function getTotalReviews(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+
+console.log(getTotalReviews(book));
