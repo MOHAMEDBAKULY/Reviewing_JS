@@ -222,7 +222,6 @@ function getTotalReviews(book) {
 }
 
 console.log(getTotalReviews(book));
-*/
 
 function getTotalReviews(book) {
   const goodreads = book.reviews?.goodreads?.reviewsCount;
@@ -255,13 +254,13 @@ displayData;
 
 // Filter Array in JavaScript
 const filterBooks = books
-  .filter((book) => book.pages > 500)
-  .filter((book) => book.hasMovieAdaptation);
+.filter((book) => book.pages > 500)
+.filter((book) => book.hasMovieAdaptation);
 console.log(filterBooks);
 
 const adventureBooks = books
-  .filter((book) => book.genres.includes("novel"))
-  .map((x) => x.pages);
+.filter((book) => book.genres.includes("novel"))
+.map((x) => x.pages);
 
 // Reduce Array in JavaScript
 const getAllPages = books.reduce((acc, book) => acc + book.pages, 0);
@@ -280,9 +279,9 @@ const sortPages = books.slice().sort((a, b) => a.pages - b.pages);
 console.log(sortPages);
 
 const sortByMap = books
-  .slice()
-  .sort((a, b) => a.pages - b.pages)
-  .map((book) => book);
+.slice()
+.sort((a, b) => a.pages - b.pages)
+.map((book) => book);
 console.log(sortByMap);
 
 // Making of mutable Arrays Used in (Adding, Updating and Deleting of arrays)
@@ -320,3 +319,19 @@ const updatedBooks = deleteBooks.map((book) =>
   book.id === 1 ? { ...books, pages: 1 } : book
 );
 updatedBooks;
+
+const jokes = fetch("https://jsonplaceholder.typicode.com/todos")
+.then((res) => res.json())
+.then((data) => console.log(data));
+*/
+
+async function getData() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+
+  return data;
+}
+
+const getTodos = getData();
+console.log(getTodos);
