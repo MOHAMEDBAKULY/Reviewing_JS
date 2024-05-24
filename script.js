@@ -282,5 +282,41 @@ console.log(sortPages);
 const sortByMap = books
   .slice()
   .sort((a, b) => a.pages - b.pages)
-  .map((book) => book.reviews.goodreads);
+  .map((book) => book);
 console.log(sortByMap);
+
+// Making of mutable Arrays Used in (Adding, Updating and Deleting of arrays)
+
+const newBook = {
+  id: 6,
+  title: "Jumanji Wonderland in the Savannah",
+  publicationDate: "2022",
+  author: "The Rock",
+  genres: ["fantasy", "adevnture", "fiction", "literature", "Parks"],
+  hasMovieAdaptation: true,
+  pages: 2043,
+  translations: {
+    Swahili: "Safari za Jumanji",
+    Arabic: "أرض جومانجي العجائب في السافانا ",
+    Spanish: "El país de las maravillas de Jumanji en la sabana",
+    Chinese: "草原上的勇敢者遊戲仙境",
+  },
+  reviews: {
+    goodreads: { rating: 4.89, ratingsCounts: 808774, reviewsCount: 64897 },
+    librarything: { rating: 4.69, ratingsCounts: 67774, reviewsCount: 69867 },
+  },
+};
+
+// Practising the immutable arrays (Adding Arrays)
+const addBooks = [...books, newBook];
+console.log(addBooks);
+
+// Practising the immutable arrays (Deleting Arrays)
+const deleteBooks = books.filter((book) => book.id !== 2);
+deleteBooks;
+
+// Practising the immutable arrays (Updating Arrays)
+const updatedBooks = deleteBooks.map((book) =>
+  book.id === 1 ? { ...books, pages: 1 } : book
+);
+updatedBooks;
