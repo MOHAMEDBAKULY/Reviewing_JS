@@ -269,3 +269,18 @@ console.log(getAllPages);
 
 const allAuthors = books.reduce((acc, writer) => acc + writer.author, 0);
 console.log(allAuthors);
+
+// Sort Array
+const numbers = [14, 230, 8, 24, 50, 10];
+const sorted = numbers.slice().sort((a, b) => a - b);
+console.log(sorted);
+console.log(numbers);
+
+const sortPages = books.slice().sort((a, b) => a.pages - b.pages);
+console.log(sortPages);
+
+const sortByMap = books
+  .slice()
+  .sort((a, b) => a.pages - b.pages)
+  .map((book) => book.reviews.goodreads);
+console.log(sortByMap);
