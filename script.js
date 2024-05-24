@@ -233,6 +233,7 @@ function getTotalReviews(book) {
 
 const books = getBooks();
 
+// Maps Array in javasrcipt
 const mapNum = [10, 20, 30, 40, 50].map((num) => num * 2);
 console.log(mapNum);
 
@@ -252,6 +253,7 @@ const displayData = books.map((book) => ({
 
 displayData;
 
+// Filter Array in JavaScript
 const filterBooks = books
   .filter((book) => book.pages > 500)
   .filter((book) => book.hasMovieAdaptation);
@@ -260,3 +262,10 @@ console.log(filterBooks);
 const adventureBooks = books
   .filter((book) => book.genres.includes("novel"))
   .map((x) => x.pages);
+
+// Reduce Array in JavaScript
+const getAllPages = books.reduce((acc, book) => acc + book.pages, 0);
+console.log(getAllPages);
+
+const allAuthors = books.reduce((acc, writer) => acc + writer.author, 0);
+console.log(allAuthors);
