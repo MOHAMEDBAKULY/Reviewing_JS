@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring
-
+/*
 const book = getBook(2);
 book;
 
@@ -222,3 +222,41 @@ function getTotalReviews(book) {
 }
 
 console.log(getTotalReviews(book));
+*/
+
+function getTotalReviews(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+
+const books = getBooks();
+
+const mapNum = [10, 20, 30, 40, 50].map((num) => num * 2);
+console.log(mapNum);
+
+const titles = books.map((book) => book.title);
+console.log(titles);
+
+const page = books.map((book) => book.pages);
+console.log(page);
+
+const displayData = books.map((book) => ({
+  bookTitle: book.title,
+  bookAuthor: book.author,
+  bookPages: book.pages,
+  bookTranslation: book.translations,
+  bookReviews: getTotalReviews(book),
+}));
+
+displayData;
+
+const filterBooks = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+console.log(filterBooks);
+
+const adventureBooks = books
+  .filter((book) => book.genres.includes("novel"))
+  .map((x) => x.pages);
