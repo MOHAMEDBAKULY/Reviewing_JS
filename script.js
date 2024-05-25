@@ -333,5 +333,25 @@ async function getData() {
   return data;
 }
 
-const getTodos = getData();
-console.log(getTodos);
+// const getTodos = getData();
+// console.log(getTodos);
+
+const theNewBook = {
+  id: 30,
+  title: "Welcome home",
+  publicationDate: 2030 - 9 - 24,
+};
+
+const books = getBooks();
+
+const addBooks = [...books, theNewBook];
+addBooks;
+console.log(theNewBook);
+
+const deleteBooks = books.filter((book) => book.id !== 3);
+deleteBooks;
+
+const updateBooks = deleteBooks.map((book) =>
+  book.id === 2 ? { ...books, pages: 2 } : book
+);
+updateBooks;
